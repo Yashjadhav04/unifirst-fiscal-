@@ -1,0 +1,785 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>UniFirst FY2026 Results</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout: source tables on the left, chart explorer on the right; one column under 920px with the explorer first. */
+:root{
+  --bg:#F2F6F6; --surface:#FFFFFF; --fg:#0F2329; --muted:#536A72; --line:#D5DFE1; --line2:#E7EEEF; --axis:#9CB0B6;
+  --c1:#0A8A74; --c2:#9AAEB6; --c3:#E09A2B; --c4:#34505C; --neg:#C4412C;
+  --on1:#FFFFFF; --on2:#0F2329; --on3:#1C1303; --on4:#FFFFFF;
+  --soft:#E0F1ED; --hl:#FFF1CF;
+  --f-d:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-b:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  --f-m:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1518; --surface:#112126; --fg:#E5EFF0; --muted:#93A9B0; --line:#22373D; --line2:#1A2C31; --axis:#4B646C;
+    --c1:#3FD1B5; --c2:#5E7783; --c3:#F2B04A; --c4:#86A7B5; --neg:#F2735F;
+    --on1:#06221C; --on2:#E5EFF0; --on3:#241703; --on4:#0A1518;
+    --soft:#12332D; --hl:#3A3015; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A1518; --surface:#112126; --fg:#E5EFF0; --muted:#93A9B0; --line:#22373D; --line2:#1A2C31; --axis:#4B646C;
+  --c1:#3FD1B5; --c2:#5E7783; --c3:#F2B04A; --c4:#86A7B5; --neg:#F2735F;
+  --on1:#06221C; --on2:#E5EFF0; --on3:#241703; --on4:#0A1518;
+  --soft:#12332D; --hl:#3A3015; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:14px/1.5 var(--f-b);margin:0}
+.page{max-width:1380px;margin:0 auto;padding-block:36px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-d);margin:0;text-wrap:balance;letter-spacing:-.01em}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--c1);outline-offset:2px}
+.eyebrow{font:500 11.5px var(--f-m);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+h1{font-size:clamp(28px,4.4vw,44px);line-height:1.05;font-weight:700}
+.lede{max-width:78ch;font-size:16px;line-height:1.6;margin:18px 0 28px;color:var(--fg)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.kpi{background:var(--surface);padding:12px 14px;min-width:0}
+.kpi .l{font:500 11px var(--f-m);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font:700 26px/1.15 var(--f-d);margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .d{font:500 12px var(--f-m);margin-top:2px;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;color:var(--muted)}
+.pos{color:var(--c1)} .neg{color:var(--neg)}
+.srcline{font-size:12px;color:var(--muted);margin:18px 0 0;max-width:100ch}
+.main{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:32px;align-items:start;margin-top:48px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px;min-width:0}
+.col-h{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:16px}
+.col-h h2{font-size:19px}
+.col-h span{font:500 11px var(--f-m);color:var(--muted);letter-spacing:.05em;text-transform:uppercase}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tab{border:1px solid var(--line);background:transparent;border-radius:6px;padding:5px 10px;font:500 12.5px var(--f-b);cursor:pointer;color:var(--muted)}
+.tab[aria-selected="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tw{overflow-x:auto;border:1px solid var(--line2);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:12px}
+th,td{padding:5px 8px;white-space:nowrap;text-align:right;border-bottom:1px solid var(--line2)}
+th{font:500 10.5px var(--f-m);letter-spacing:.04em;text-transform:uppercase;color:var(--muted);background:var(--surface)}
+td{font-family:var(--f-m);font-variant-numeric:tabular-nums}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--surface);font-family:var(--f-b);min-width:150px;white-space:normal;z-index:1}
+tr.b td{font-weight:600}
+tr.sec td{font:600 11px var(--f-m);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--bg);padding-top:9px}
+tr.it td{font-style:italic;color:var(--muted)}
+tr.hl td{background:var(--hl)}
+td.dn{color:var(--neg)} td.up{color:var(--c1)}
+.note{font-size:12px;color:var(--muted);margin:10px 2px 0}
+.groups{display:flex;flex-direction:column;gap:14px;margin-bottom:22px}
+.grp{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.grp .gl{font:500 10.5px var(--f-m);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);width:118px;flex:none}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:5px 12px;font:500 13px var(--f-b);cursor:pointer}
+.chip:hover{border-color:var(--c1)}
+.chip[aria-pressed="true"]{background:var(--c1);border-color:var(--c1);color:var(--on1)}
+.stage-h{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;justify-content:space-between}
+.stage-h h3{font-size:clamp(19px,2.3vw,25px);line-height:1.15;flex:1 1 320px}
+.sub{font-size:12.5px;color:var(--muted);margin:6px 0 0}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:12px}
+.seg button{border:0;background:transparent;padding:5px 12px;font:500 12.5px var(--f-b);cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+#chart{margin-top:18px;min-height:120px}
+.ch{display:block;max-width:100%}
+.tags{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:8px}
+.tag{font:500 10.5px var(--f-m);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:2px 6px;color:var(--muted)}
+.tag.der{border-color:var(--c3);color:var(--c3)}
+.link{background:none;border:0;color:var(--c1);cursor:pointer;font:500 12.5px var(--f-b);padding:2px 0;text-decoration:underline;text-underline-offset:3px}
+.take{list-style:none;margin:22px 0 0;padding:0}
+.take li{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;padding:12px 0;border-top:1px solid var(--line2)}
+.take li p{margin:0;flex:1;min-width:0}
+.cp{flex:none;border:1px solid var(--line);background:transparent;border-radius:6px;padding:2px 9px;font:500 11.5px var(--f-m);cursor:pointer;color:var(--muted)}
+.cp:hover{border-color:var(--c1);color:var(--c1)}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:14px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:6px;padding:6px 12px;font:500 13px var(--f-b);cursor:pointer}
+.btn:hover{border-color:var(--c1)}
+.btn.pri{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.sec2{margin-top:48px}
+.linkcard{padding-top:8px}
+a.btn{text-decoration:none;display:inline-block;color:var(--bg)}
+.eli{margin:10px 0 0;padding:10px 12px;background:var(--soft);border-radius:6px;font-size:13.5px}
+.sec2>h2{font-size:24px;margin-bottom:4px}
+.sec2>p{margin:0 0 14px;color:var(--muted);max-width:80ch}
+.all{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,420px),1fr));gap:14px}
+.all .card h3{font-size:16px;margin-bottom:4px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:14px}
+.chk{list-style:none;margin:0;padding:0}
+.chk li{display:flex;gap:10px;padding:6px 0;border-top:1px solid var(--line2);font-size:13px}
+.chk li:first-child{border-top:0}
+.chk .ok{font:600 12px var(--f-m);color:var(--c1);flex:none;width:18px}
+.chk .bad{color:var(--neg)}
+.chk code{font-family:var(--f-m);font-size:12px;color:var(--muted)}
+.ul{margin:0;padding-left:18px} .ul li{margin:6px 0}
+#tip{position:fixed;z-index:50;font-family:var(--f-b);font-size:12.5px;line-height:1.4;max-width:300px;background:var(--fg);color:var(--bg);font:500 12px var(--f-m);padding:5px 8px;border-radius:5px;pointer-events:none;max-width:260px}
+#fb{position:fixed;inset:auto 16px 16px 16px;z-index:60;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px;max-width:560px;margin-inline:auto}
+#fb textarea{width:100%;height:110px;font:12px var(--f-m);background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:8px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.tile{background:var(--surface);padding:12px}
+.tile b{display:block;font:700 24px/1.1 var(--f-d);font-variant-numeric:tabular-nums}
+.tile span{display:block;font-size:12.5px;margin-top:3px}
+.tile i{display:block;font:500 10px var(--f-m);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-top:6px;font-style:normal}
+.tl{list-style:none;margin:8px 0 0;padding:0 0 0 18px;border-left:2px solid var(--line)}
+.tl li{position:relative;padding:0 0 14px 6px}
+.tl li::before{content:"";position:absolute;left:-25px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--c2);border:2px solid var(--surface)}
+.tl li.key::before{background:var(--c1)}
+.tl .dt{font:500 12px var(--f-m);color:var(--muted)}
+.tl .ev{font-weight:600}
+.tl .dd{font-size:12.5px;color:var(--muted)}
+
+.why{list-style:none;margin:26px 0 0;padding:0;border-top:1px solid var(--line2)}
+.why li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line2)}
+.why .wl{font:500 11.5px var(--f-m);letter-spacing:.06em;text-transform:uppercase;color:var(--c1);padding-top:3px}
+.why li.cv .wl{color:var(--c3)}
+.why .wt{font-size:14.5px;line-height:1.6;min-width:0}
+.why .tag{margin-left:8px;white-space:nowrap;vertical-align:1px}
+@media (max-width:620px){.why li{grid-template-columns:minmax(0,1fr);gap:4px}}
+@media (max-width:920px){
+  .main{grid-template-columns:minmax(0,1fr)}
+  .exp{order:-1}
+  .grp .gl{width:100%}
+}
+@media (prefers-reduced-motion:no-preference){ .chip,.btn,.cp{transition:background .15s,border-color .15s} }
+</style>
+
+<div class="page">
+  <header>
+    <p class="eyebrow">UniFirst Corporation (NYSE: UNF) · fiscal 2026, year ended August 29, 2026</p>
+    <h1>UniFirst FY2026 results, decoded</h1>
+    <p class="lede">Revenue grew 3.7% to $2.52B, but operating income fell 26.3% to $136.0M. Disclosed merger and ERP costs were $43.7M higher than a year earlier, which is most of the $48.5M drop. Excluding them, Q4 operating margin rose to about 9.1% from 8.3%.</p>
+    <div class="kpis" id="kpis"></div>
+    <p class="srcline">Source: UniFirst press release of October 21, 2026 (unaudited). Items tagged "Brief" come from the UniFirst public data brief (SEC filings). Items tagged "Our calc." are arithmetic on reported numbers, not company figures, forecasts or investment advice.</p>
+  </header>
+
+  <main class="main">
+    <section class="src card" aria-label="Source data">
+      <div class="col-h"><h2>Source data</h2><span>As reported · $ thousands</span></div>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <div id="tables"></div>
+      <p class="note" id="srcnote"></p>
+    </section>
+
+    <section class="exp" aria-label="Insight explorer">
+      <div class="col-h"><h2>Insight explorer</h2><span id="pos"></span></div>
+      <div class="groups" id="chips"></div>
+      <div class="card">
+        <div class="stage-h"><h3 id="head"></h3></div>
+        <p class="sub" id="sub"></p>
+        <p class="eli" id="eli"></p>
+        <div id="segwrap"></div>
+        <div id="chart"></div>
+        <div class="tags"><span id="tags"></span><button class="link" id="viewsrc" type="button">Show source rows</button></div>
+        <ol class="why" id="take" aria-label="Why this happened"></ol>
+        <div class="nav">
+          <button class="btn" id="prev" type="button">← Previous</button>
+          <button class="btn" id="copyone" type="button">Copy this insight and its logic</button>
+          <button class="btn pri" id="next" type="button">Next →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="sec2 linkcard">
+    <h2>Need the lines to share?</h2>
+    <p>Every one-liner, the live tie-out checks and the gaps in the release are on a separate page.</p>
+    <p><a class="btn pri" href="https://claude.ai/artifact/FABwawSaFWbWeyJaym9XJd" target="_blank" rel="noopener">Open the one-liners page</a></p>
+  </section>
+</div>
+<div id="tip" hidden></div>
+<div id="fb" hidden><p style="margin:0 0 6px;font-size:13px">Copy is blocked here. Select the text and press Ctrl/Cmd+C.</p><textarea id="fbt" readonly></textarea><p style="margin:8px 0 0"><button class="btn" id="fbx" type="button">Close</button></p></div>
+
+<script id="core">
+/* ---------- DATA (all $ thousands unless noted). Index order: [Q4 FY25, Q4 FY26, FY25, FY26] ---------- */
+const P=['Q4 FY25','Q4 FY26','FY25','FY26'];
+const IS={
+ rev:[614447,645005,2432352,2523230], cogs:[382012,403890,1542400,1600281], sga:[146980,163769,565099,644913], da:[35879,35654,140355,141992],
+ opex:[564871,603313,2247854,2387186], oi:[49576,41692,184498,136044], intinc:[-2348,-1950,-9770,-7234], oth:[513,331,-1107,1205],
+ toth:[-1835,-1619,-10877,-6029], pbt:[51411,43311,195375,142073], tax:[10384,8584,47104,32583], ni:[41027,34727,148271,109490],
+ eps:[2.23,1.90,7.98,6.02], adj:[88066,94856,336770,327068],
+ costOI:[1.4,17.3,6.8,50.5], costNI:[1.1,12.9,5.1,37.9], costEPS:[0.05,0.71,0.28,2.08], txn:[0,14.4,0,37.2], ki:[1.4,2.8,6.8,13.3]
+};
+const SEG={
+ u:{n:'Core uniform & facility',rev:[560072,585354,2218562,2295801],oi:[46567,39963,168502,126340],adj:[83098,90805,313198,308339]},
+ f:{n:'First Aid & Safety',rev:[31123,35177,114586,127023],oi:[473,-1533,853,-4589],adj:[1511,-124,4784,732]},
+ o:{n:'Other (nuclear)',rev:[23252,24474,99204,100406],oi:[2536,3262,15143,14293],adj:[3457,4175,18788,17997]}
+};
+const BS={cash:[203501,192121],sti:[5672,0],recv:[285297,306998],inv:[145197,146356],rent:[227720,244643],ptax:[7708,17413],pexp:[49508,60926],tca:[924603,968457],
+ ppe:[829622,843589],gw:[657748,675385],intg:[105829,90051],dta:[977,943],rou:[70110,78849],oa:[189266,213100],ta:[2778155,2870374],
+ ap:[94980,94522],acc:[176903,194755],atax:[674,196],lcur:[17846,18808],tcl:[290403,308281],ltacc:[128554,123129],dtl:[135648,147502],llt:[54593,62337],tl:[609198,641249],
+ com:[1468,1454],clb:[355,355],sur:[109107,115369],re:[2079812,2133736],aoci:[-21785,-21789],eq:[2168957,2229125]};
+const CF={ni:[148271,109490],da:[140355,141992],sbc:[12173,13062],env:[1280,1404],aro:[875,1072],dtx:[3897,10281],gain:[-2117,309],oth:[448,214],
+ recv:[-6478,-21320],inv:[12318,-445],rent:[10039,-16759],pre:[-24330,-15545],ap:[2333,-2005],acc:[-8774,-7890],tax:[6582,-8575],cfo:[296872,205285],
+ acq:[-11911,-24578],capex:[-154345,-134519],buy:[-20406,-5664],mat:[28356,11426],proc:[3259,798],cfi:[-155047,-152537],
+ cont:[0,-1670],dfc:[-1164,0],exer:[4,5],wh:[-4473,-5178],rep:[-70895,-32736],div:[-24625,-25151],cff:[-101153,-64730],fx:[1258,602],net:[41930,-11380],beg:[161571,203501],end:[203501,192121]};
+const NG={ni:[41027,34727,148271,109490],tax:[10384,8584,47104,32583],int:[-2348,-1950,-9770,-7234],da:[35879,35654,140355,141992],sbc:[3124,3396,12173,13062],gain:[0,0,-2792,0],nonop:[0,14445,1429,37175],adj:[88066,94856,336770,327068]};
+
+/* ---------- FORMATTERS ---------- */
+const sgn=v=>v<0?'−':'';
+const usd=(nK,d=1)=>sgn(nK)+'$'+Math.abs(nK/1000).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})+'M';
+const usdM=(nM,d=1)=>sgn(nM)+'$'+Math.abs(nM).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d})+'M';
+const pc=(x,d=1)=>(x>0?'+':x<0?'−':'')+Math.abs(x*100).toFixed(d)+'%';
+const pl=(x,d=1)=>(x*100).toFixed(d)+'%';
+const nf=n=>n===0?'—':(n<0?'('+Math.abs(n).toLocaleString('en-US')+')':n.toLocaleString('en-US'));
+const gr=(a,i,j)=>a[j]/a[i]-1;
+const fcf=i=>CF.cfo[i]+CF.capex[i];
+const und=i=>IS.oi[i]+IS.costOI[i]*1000;
+const undEps=i=>IS.eps[i]+IS.costEPS[i];
+
+/* ---------- SVG HELPERS ---------- */
+const tx=(x,y,s,o={})=>`<text x="${x.toFixed(1)}" y="${y.toFixed(1)}" text-anchor="${o.a||'start'}" style="fill:${o.f||'var(--fg)'};font-size:${o.s||12}px;font-weight:${o.w||400};${o.m?'font-family:var(--f-m);':''}">${s}</text>`;
+const tl=(x,y,lines,o={})=>lines.map((l,i)=>tx(x,y+i*(o.lh||12.5),l,o)).join('');
+const svg=(W,H,inner,label)=>`<svg class="ch" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="${label}">${inner}</svg>`;
+function legend(items,W,y){let x=16,cy=y,s='';items.forEach(it=>{const w=15+it.t.length*6.3+16;if(x+w>W-8&&x>16){x=16;cy+=18;}
+ s+=`<rect x="${x}" y="${cy-9}" width="10" height="10" rx="2" style="fill:${it.c}"/>`+tx(x+15,cy,it.t,{s:12,f:'var(--muted)'});x+=w;});return{s,b:cy+8};}
+const tip=s=>`data-tip="${s}"`;
+
+/* ---------- CHART: dumbbell ---------- */
+function rGrowth(W){
+ const S=[['Total company',IS.rev],['Core uniform &amp; facility',SEG.u.rev],['First Aid &amp; Safety',SEG.f.rev],['Other (nuclear)',SEG.o.rev]];
+ const pad=22,pw=W-2*pad,rh=66,mx=0.15,X=v=>pad+pw*v/mx;
+ const lg=legend([{c:'var(--c2)',t:'Full year FY26'},{c:'var(--c1)',t:'Q4 FY26'}],W,16);
+ const top=lg.b+12,H=top+rh*S.length+24;
+ let s=lg.s;
+ [0,0.05,0.10,0.15].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${top-4}" y2="${H-22}" style="stroke:var(--${t===0?'axis':'line2'})"/>`+tx(X(t),H-6,pl(t,0),{a:'middle',s:11,f:'var(--muted)',m:1});});
+ S.forEach((r,i)=>{
+  const y=top+i*rh,q=gr(r[1],0,1),f=gr(r[1],2,3),xq=X(q),xf=X(f),close=Math.abs(xq-xf)<52,cy=y+44;
+  s+=tx(pad,y+12,r[0],{w:600,s:12.5});
+  s+=`<line x1="${xf}" x2="${xq}" y1="${cy}" y2="${cy}" style="stroke:var(--axis);stroke-width:3"/>`;
+  s+=`<circle cx="${xf}" cy="${cy}" r="7" style="fill:var(--c2)" ${tip(r[0].replace('&amp;','&')+' FY: '+pc(f))}/><circle cx="${xq}" cy="${cy}" r="7" style="fill:var(--c1)" ${tip(r[0].replace('&amp;','&')+' Q4: '+pc(q))}/>`;
+  s+=tx(close?xf-2:xf,cy-13,pl(f),{a:close?'end':'middle',m:1,s:12,w:500,f:'var(--muted)'});
+  s+=tx(close?xq+2:xq,cy-13,pl(q),{a:close?'start':'middle',m:1,s:12.5,w:500});
+ });
+ return svg(W,H,s,'Revenue growth by segment, Q4 versus full year');
+}
+
+/* ---------- CHART: diverging bars ---------- */
+function rSqueeze(W){
+ const items=[['Revenue',gr(IS.rev,2,3)],['Adjusted EBITDA',gr(IS.adj,2,3)],['Diluted EPS',gr(IS.eps,2,3)],['Net income',gr(IS.ni,2,3)],['Operating income',gr(IS.oi,2,3)],['Operating cash flow',gr(CF.cfo,0,1)],['Free cash flow (our calc.)',gr({0:fcf(0),1:fcf(1)},0,1)]];
+ const pad=16,pw=W-2*pad,lo=-0.62,hi=0.12,X=v=>pad+pw*(v-lo)/(hi-lo),rh=42,top=8,H=top+rh*items.length+24;
+ let s='';
+ [-0.6,-0.4,-0.2,0,0.1].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${top}" y2="${H-22}" style="stroke:var(--${t===0?'axis':'line2'})"/>`+tx(X(t),H-6,pc(t,0).replace('+',''),{a:'middle',s:11,f:'var(--muted)',m:1});});
+ items.forEach((it,i)=>{
+  const y=top+i*rh,v=it[1],x0=X(0),x1=X(v),neg=v<0;
+  s+=tx(pad,y+12,it[0],{s:12.5,f:'var(--muted)'});
+  s+=`<rect x="${Math.min(x0,x1)}" y="${y+18}" width="${Math.abs(x1-x0)}" height="15" rx="2" style="fill:var(--${neg?'neg':'c1'})" ${tip(it[0].replace('&amp;','&')+': '+pc(v)+' vs FY25')}/>`;
+  s+=tx(neg?x1-6:x1+6,y+30,pc(v),{a:neg?'end':'start',m:1,w:500,s:12.5});
+ });
+ return svg(W,H,s,'Percent change from FY25 to FY26 by metric');
+}
+
+/* ---------- CHART: waterfall ---------- */
+function wf(W,steps,o){
+ const H=o.H||340,L=12,R=12,T=30,B=64,pw=W-L-R,n=steps.length,cw=pw/n,bw=Math.min(58,cw*0.68);
+ let run=0;const pos=steps.map(s=>{if(s.t==='total'){const v=s.v==null?run:s.v;run=v;return{a:0,b:v,v};}const a=run;run+=s.v;return{a,b:run,v:s.v};});
+ const mx=Math.max(...pos.map(p=>Math.max(p.a,p.b)))*1.12,Y=v=>H-B-(v/mx)*(H-B-T);
+ let s=`<line x1="${L}" x2="${W-R}" y1="${Y(0)}" y2="${Y(0)}" style="stroke:var(--axis)"/>`;
+ steps.forEach((st,i)=>{
+  const p=pos[i],x=L+cw*i+(cw-bw)/2,top=Y(Math.max(p.a,p.b)),h=Math.max(1.5,Math.abs(Y(p.a)-Y(p.b)));
+  const tot=st.t==='total',up=st.v>0;
+  const fill=tot?`var(--${st.c||'c1'})`:(up?'var(--c1)':'var(--neg)'),op=tot?1:0.62;
+  s+=`<rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="2" style="fill:${fill};fill-opacity:${op};stroke:${fill}" ${tip(st.l.replace(/\|/g,' ').replace(/&amp;/g,'&')+': '+(tot?o.f(p.v):(up?'+':'')+o.f(st.v)))}/>`;
+  s+=tx(x+bw/2,top-6,tot?o.f(p.v):(up?'+':'')+o.f(st.v),{a:'middle',m:1,s:bw<40?10.5:12,w:500});
+  if(i<n-1){const nx=L+cw*(i+1)+(cw-bw)/2;s+=`<line x1="${x+bw}" x2="${nx}" y1="${Y(p.b)}" y2="${Y(p.b)}" style="stroke:var(--axis);stroke-dasharray:3 3"/>`;}
+  s+=tl(x+bw/2,H-B+16,st.l.split('|'),{a:'middle',s:11,f:'var(--muted)'});
+ });
+ return svg(W,H,s,o.label);
+}
+function oiSteps(i0,i1,lab0,lab1){const d=k=>IS[k][i1]-IS[k][i0];
+ return [{l:lab0+'|operating|income',v:IS.oi[i0],t:'total',c:'c2'},{l:'Revenue|growth',v:d('rev')},{l:'Cost of|revenues',v:-d('cogs')},{l:'Selling &amp;|admin',v:-d('sga')},{l:'D&amp;A',v:-d('da')},{l:lab1+'|operating|income',t:'total',c:'c1'}];}
+function rBridge(W,k){return k==='q4'?wf(W,oiSteps(0,1,'Q4 FY25','Q4 FY26'),{f:usd,label:'Q4 operating income bridge'}):wf(W,oiSteps(2,3,'FY25','FY26'),{f:usd,label:'Full-year operating income bridge'});}
+function rEbitda(W,k){const i=k==='q4'?1:3,lab=k==='q4'?'Q4 FY26':'FY26';
+ const st=[{l:'Net|income',v:NG.ni[i],t:'total',c:'c4'},{l:'Income|taxes',v:NG.tax[i]},{l:'Interest|income',v:NG.int[i]},{l:'D&amp;A',v:NG.da[i]},{l:'Stock|comp',v:NG.sbc[i]},{l:'Non-operating|items',v:NG.nonop[i]},{l:'Adjusted|EBITDA',t:'total',c:'c1'}];
+ return wf(W,st,{f:usd,label:lab+' net income to adjusted EBITDA'});}
+function rCash(W){const C=CF;
+ return wf(W,[{l:'Cash|FY25 end',v:C.beg[1],t:'total',c:'c2'},{l:'Operating|cash flow',v:C.cfo[1]},{l:'Capex',v:C.capex[1]},{l:'Acquisitions',v:C.acq[1]},{l:'Share|buybacks',v:C.rep[1]},{l:'Dividends',v:C.div[1]},{l:'Other',v:C.net[1]-(C.cfo[1]+C.capex[1]+C.acq[1]+C.rep[1]+C.div[1])},{l:'Cash|FY26 end',t:'total',c:'c1'}],{f:usd,label:'FY26 cash bridge'});}
+
+/* ---------- CHART: 100% stacked ---------- */
+function rCost(W){
+ const idx=[2,3,0,1],names=['FY2025','FY2026','Q4 FY25','Q4 FY26'];
+ const segs=[['Cost of revenues','cogs','c4','on4'],['Selling &amp; admin','sga','c3','on3'],['D&amp;A','da','c2','on2'],['Operating income','oi','c1','on1']];
+ const lg=legend(segs.map(x=>({c:`var(--${x[2]})`,t:x[0].replace('&amp;','&')})),W,16);
+ const pad=16,pw=W-2*pad,top=lg.b+10,rh=64,H=top+rh*4+4;let s=lg.s;
+ idx.forEach((ix,r)=>{
+  const y=top+r*rh;s+=tx(pad,y+12,names[r],{w:600,s:12.5});let x=pad;
+  segs.forEach(sg=>{const sh=IS[sg[1]][ix]/IS.rev[ix],w=pw*sh;
+   s+=`<rect x="${x}" y="${y+20}" width="${w}" height="30" style="fill:var(--${sg[2]});stroke:var(--surface);stroke-width:1.5" ${tip(names[r]+' '+sg[0].replace('&amp;','&')+': '+pl(sh)+' of revenue')}/>`;
+   if(w>34)s+=tx(x+w/2,y+39,pl(sh),{a:'middle',m:1,s:11.5,w:500,f:`var(--${sg[3]})`});x+=w;});
+ });
+ return svg(W,H,s,'Cost structure as a percent of revenue');
+}
+
+/* ---------- CHART: grouped columns ---------- */
+function gcols(W,o){
+ const lg=legend(o.series.map(x=>({c:`var(--${x.c})`,t:x.n})),W,16);
+ const L=44,R=12,T=lg.b+14,B=o.B||54,H=o.H||340,pw=W-L-R,y0=T,y1=H-B,Y=v=>y1-(v-o.min)/(o.max-o.min)*(y1-y0);
+ let s=lg.s;
+ o.ticks.forEach(t=>{s+=`<line x1="${L}" x2="${W-R}" y1="${Y(t)}" y2="${Y(t)}" style="stroke:var(--${t===0?'axis':'line2'})"/>`+tx(L-6,Y(t)+4,o.tf(t),{a:'end',s:11,f:'var(--muted)',m:1});});
+ const n=o.cats.length,gw=pw/n,k=o.series.length,bw=Math.min(40,gw*0.8/k),gap=3;
+ o.cats.forEach((c,i)=>{
+  const gx=L+gw*i+gw/2-(k*bw+(k-1)*gap)/2;
+  o.series.forEach((se,j)=>{
+   const v=se.v[i],x=gx+j*(bw+gap),top=Math.min(Y(v),Y(0)),h=Math.max(1.5,Math.abs(Y(v)-Y(0)));
+   s+=`<rect x="${x}" y="${top}" width="${bw}" height="${h}" rx="2" style="fill:var(--${se.c})" ${tip(c.replace(/\|/g,' ').replace(/&amp;/g,'&')+' · '+se.n+': '+o.tf(v))}/>`;
+   s+=tx(x+bw/2,v>=0?top-5:top+h+13,o.tf(v),{a:'middle',m:1,s:bw<30?10:11.5,w:500});
+  });
+  s+=tl(L+gw*i+gw/2,y1+(o.catY||18),c.split('|'),{a:'middle',s:11.5,f:'var(--muted)'});
+ });
+ return svg(W,H,s,o.label);
+}
+const mgn=(a,i)=>a[i]/1;
+function rUnder(W){
+ const cats=['Q4 FY25','Q4 FY26','FY25','FY26'],ix=[0,1,2,3];
+ return gcols(W,{cats,series:[{n:'Reported operating margin',c:'c4',v:ix.map(i=>IS.oi[i]/IS.rev[i]*100)},{n:'Excluding disclosed merger and ERP costs',c:'c1',v:ix.map(i=>und(i)/IS.rev[i]*100)}],min:0,max:10.5,ticks:[0,2,4,6,8,10],tf:v=>v.toFixed(1).replace(/\.0$/,'')+'%',label:'Reported versus underlying operating margin',B:34,H:330});
+}
+function rSegM(W,k){
+ const q=k==='q4',a=q?0:2,b=q?1:3,cats=['Core uniform|&amp; facility','First Aid|&amp; Safety','Other|(nuclear)','Total'];
+ const m=(arr,i,rev)=>arr[i]/rev[i]*100;
+ const keys=['u','f','o'];
+ const v=i=>keys.map(k2=>m(SEG[k2].adj,i,SEG[k2].rev)).concat([IS.adj[i]/IS.rev[i]*100]);
+ return gcols(W,{cats,series:[{n:q?'Q4 FY25':'FY25',c:'c2',v:v(a)},{n:q?'Q4 FY26':'FY26',c:'c1',v:v(b)}],min:-3,max:21,ticks:[0,5,10,15,20],tf:x=>x.toFixed(1).replace(/\.0$/,'')+'%',label:'Adjusted EBITDA margin by segment',B:50,H:340});
+}
+function rCap(W){
+ const f=i=>[fcf(i)/1000,-CF.rep[i]/1000,-CF.div[i]/1000,-CF.acq[i]/1000];
+ return gcols(W,{cats:['Free cash|flow','Share|buybacks','Dividends','Acquisitions'],series:[{n:'FY25',c:'c2',v:f(0)},{n:'FY26',c:'c1',v:f(1)}],min:0,max:165,ticks:[0,40,80,120,160],tf:x=>'$'+x.toFixed(x%1?1:0)+'M',label:'Free cash flow and uses of cash',B:50,H:330});
+}
+
+/* ---------- CHART: slope ---------- */
+function rEps(W,k){
+ const q=k==='q4',a=q?0:2,b=q?1:3;
+ const L0=Math.round(W*0.34),R0=Math.round(W*0.70),T=64,H=300,B=24;
+ const vals=[IS.eps[a],IS.eps[b],undEps(a),undEps(b)],mn=Math.min(...vals),mx=Math.max(...vals),pd=(mx-mn)*0.18,lo=mn-pd,hi=mx+pd;
+ const Y=v=>H-B-(v-lo)/(hi-lo)*(H-B-T),f=v=>'$'+v.toFixed(2);
+ const lg=legend([{c:'var(--c4)',t:'Reported'},{c:'var(--c1)',t:'Excluding disclosed costs'}],W,16);
+ let s=lg.s;
+ s+=tx(L0,T-22,q?'Q4 FY25':'FY25',{a:'middle',w:600,s:12.5})+tx(R0,T-22,q?'Q4 FY26':'FY26',{a:'middle',w:600,s:12.5});
+ s+=`<line x1="${L0}" x2="${L0}" y1="${T-10}" y2="${H-B+6}" style="stroke:var(--line)"/><line x1="${R0}" x2="${R0}" y1="${T-10}" y2="${H-B+6}" style="stroke:var(--line)"/>`;
+ const lines=[['c4',IS.eps[a],IS.eps[b],'Reported'],['c1',undEps(a),undEps(b),'Excluding costs']];
+ lines.forEach(l=>{s+=`<line x1="${L0}" x2="${R0}" y1="${Y(l[1])}" y2="${Y(l[2])}" style="stroke:var(--${l[0]});stroke-width:3"/>`+
+  `<circle cx="${L0}" cy="${Y(l[1])}" r="6" style="fill:var(--${l[0]})" ${tip(l[3]+' EPS: '+f(l[1]))}/><circle cx="${R0}" cy="${Y(l[2])}" r="6" style="fill:var(--${l[0]})" ${tip(l[3]+' EPS: '+f(l[2]))}/>`;});
+ const place=(ys,x,an,dx)=>{const o=ys.map((y,i)=>({y,i})).sort((p,q2)=>p.y-q2.y);if(o[1].y-o[0].y<15){const m=(o[0].y+o[1].y)/2;o[0].y=m-8;o[1].y=m+8;}return o;};
+ const ll=place([Y(lines[0][1]),Y(lines[1][1])]),rr=place([Y(lines[0][2]),Y(lines[1][2])]);
+ ll.forEach(o=>{s+=tx(L0-12,o.y+4,f(lines[o.i][1]),{a:'end',m:1,w:500,s:13});});
+ rr.forEach(o=>{s+=tx(R0+12,o.y+4,f(lines[o.i][2]),{a:'start',m:1,w:500,s:13});});
+ return svg(W,H,s,'Diluted EPS reported versus excluding disclosed costs');
+}
+
+/* ---------- CHART: waffle ---------- */
+function rDeal(W){
+ const wide=W>=560,cell=Math.floor(Math.min(wide?W*0.42:W-32,300)/10),gap=3,gs=cell*10;
+ const total=IS.costOI[3],tn=Math.round(IS.txn[3]/total*100),kn=100-tn;
+ const H=wide?gs+16:gs+170;let s='',ox=16,oy=8;
+ for(let i=0;i<100;i++){const r=Math.floor(i/10),c=i%10,isT=i<tn;
+  s+=`<rect x="${ox+c*cell}" y="${oy+r*cell}" width="${cell-gap}" height="${cell-gap}" rx="2" style="fill:var(--${isT?'c3':'c4'})" ${tip(isT?'Merger transaction costs: $37.2M':'ERP project costs: $13.3M')}/>`;}
+ const tx0=wide?ox+gs+28:16,ty0=wide?30:gs+34;
+ s+=tx(tx0,ty0,'$50.5M',{s:30,w:700,f:'var(--fg)'});
+ s+=tx(tx0,ty0+20,'cut FY26 operating income (FY25: $6.8M)',{s:12.5,f:'var(--muted)'});
+ s+=`<rect x="${tx0}" y="${ty0+40}" width="12" height="12" rx="2" style="fill:var(--c3)"/>`+tx(tx0+20,ty0+51,'$37.2M Cintas transaction costs',{s:13});
+ s+=tx(tx0+20,ty0+68,'mostly legal, advisory and professional fees',{s:11.5,f:'var(--muted)'});
+ s+=`<rect x="${tx0}" y="${ty0+82}" width="12" height="12" rx="2" style="fill:var(--c4)"/>`+tx(tx0+20,ty0+93,'$13.3M ERP project (FY25: $6.8M)',{s:13});
+ s+=tx(tx0+20,ty0+110,'one square is about $0.5M',{s:11.5,f:'var(--muted)'});
+ return svg(W,H,s,'Breakdown of fifty point five million dollars of merger and ERP costs');
+}
+
+/* ---------- CHART: donuts ---------- */
+function arc(cx,cy,r0,r1,a0,a1){const p=(r,a)=>[cx+r*Math.cos(a),cy+r*Math.sin(a)],l=a1-a0>Math.PI?1:0,A=p(r1,a0),B=p(r1,a1),C=p(r0,a1),D=p(r0,a0);
+ return `M${A[0]} ${A[1]}A${r1} ${r1} 0 ${l} 1 ${B[0]} ${B[1]}L${C[0]} ${C[1]}A${r0} ${r0} 0 ${l} 0 ${D[0]} ${D[1]}Z`;}
+function rMix(W){
+ const r1=Math.min(W/4-12,112),r0=r1*0.62,cy=r1+34,H=cy+r1+28+38*3+4,keys=['u','f','o'],cols=['c1','c4','c2'];
+ let s='';
+ [['FY26 revenue',keys.map(k=>SEG[k].rev[3]),usd(IS.rev[3],0).replace('.0','')+'',W/4],['FY26 adjusted EBITDA',keys.map(k=>SEG[k].adj[3]),usd(IS.adj[3],0),W*3/4]].forEach(d=>{
+  const tot=d[1].reduce((a,b)=>a+b,0);let a=-Math.PI/2;
+  s+=tx(d[3],18,d[0],{a:'middle',w:600,s:12.5});
+  d[1].forEach((v,i)=>{const sw=v/tot*Math.PI*2;s+=`<path d="${arc(d[3],cy,r0,r1,a,a+Math.max(sw,0.012))}" style="fill:var(--${cols[i]});stroke:var(--surface);stroke-width:2" ${tip(SEG[keys[i]].n+': '+pl(v/tot)+' ('+usd(v)+')')}/>`;a+=sw;});
+  s+=tx(d[3],cy+6,d[2],{a:'middle',s:Math.min(22,r0*0.36),w:700});
+ });
+ const ly=cy+r1+28;
+ keys.forEach((k,i)=>{const y=ly+i*38,pr=SEG[k].rev[3]/IS.rev[3],pa=SEG[k].adj[3]/IS.adj[3];
+  s+=`<rect x="16" y="${y-10}" width="11" height="11" rx="2" style="fill:var(--${cols[i]})"/>`+tx(34,y,SEG[k].n.replace('&','&amp;'),{s:12.5,w:600})+tx(34,y+16,pl(pr)+' of revenue · '+pl(pa)+' of adjusted EBITDA',{m:1,s:11.5,f:'var(--muted)'});});
+ return svg(W,H,s,'Segment share of revenue and adjusted EBITDA');
+}
+
+/* ---------- CHART: working capital diverging pairs ---------- */
+function rWc(W){
+ const items=[['Receivables','recv'],['Inventories','inv'],['Rental merchandise in service','rent'],['Prepaid and other assets','pre'],['Accounts payable','ap'],['Accrued liabilities','acc'],['Income taxes','tax']];
+ const lg=legend([{c:'var(--c2)',t:'FY25'},{c:'var(--c1)',t:'FY26'}],W,16);
+ const pad=16,pw=W-2*pad,lo=-26,hi=16,X=v=>pad+pw*(v-lo)/(hi-lo),rh=52,top=lg.b+10,H=top+rh*items.length+54;let s=lg.s;
+ [-20,-10,0,10].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${top-4}" y2="${H-48}" style="stroke:var(--${t===0?'axis':'line2'})"/>`+tx(X(t),H-32,(t<0?'−':'')+'$'+Math.abs(t)+'M',{a:'middle',s:11,f:'var(--muted)',m:1});});
+ items.forEach((it,i)=>{const y=top+i*rh;s+=tx(pad,y+10,it[0],{s:12.5,f:'var(--muted)'});
+  [[0,'c2'],[1,'c1']].forEach(([j,c])=>{const v=CF[it[1]][j]/1000,x0=X(0),x1=X(v),by=y+16+j*15;
+   s+=`<rect x="${Math.min(x0,x1)}" y="${by}" width="${Math.max(1.5,Math.abs(x1-x0))}" height="12" rx="2" style="fill:var(--${c})" ${tip(it[0]+' '+(j?'FY26':'FY25')+': '+usdM(v))}/>`;
+   s+=tx(v<0?x1-5:x1+5,by+10,usdM(v),{a:v<0?'end':'start',m:1,s:11,f:j?'var(--fg)':'var(--muted)',w:j?500:400});});});
+ const t0=[0,1].map(j=>['recv','inv','rent','pre','ap','acc','tax'].reduce((a,k)=>a+CF[k][j],0));
+ s+=tx(pad,H-10,'Net working capital effect:  FY25 '+usd(t0[0])+'   FY26 '+usd(t0[1]),{s:12.5,w:600});
+ return svg(W,H,s,'Working capital cash effect by line, FY25 versus FY26');
+}
+
+/* ---------- CHART: treemap ---------- */
+function lay(items,x,y,w,h,out){
+ if(items.length===1){out.push(Object.assign({},items[0],{x,y,w,h}));return;}
+ const tot=items.reduce((a,i)=>a+i.v,0);let acc=0,k=0;
+ for(;k<items.length-1;k++){acc+=items[k].v;if(acc>=tot/2)break;}
+ if(k>=items.length-1)k=items.length-2;
+ const A=items.slice(0,k+1),B=items.slice(k+1),sa=A.reduce((a,i)=>a+i.v,0);
+ if(w>=h){const wa=w*sa/tot;lay(A,x,y,wa,h,out);lay(B,x+wa,y,w-wa,h,out);}else{const ha=h*sa/tot;lay(A,x,y,w,ha,out);lay(B,x,y+ha,w,h-ha,out);}
+}
+function rBalance(W){
+ const b=k=>BS[k][1];
+ const items=[{n:'Property &amp; equipment',v:b('ppe'),g:'c4'},{n:'Goodwill',v:b('gw'),g:'c2'},{n:'Receivables',v:b('recv'),g:'c1'},{n:'Rental merchandise',v:b('rent'),g:'c1'},
+  {n:'Other assets',v:b('oa')+b('dta'),g:'c2'},{n:'Cash',v:b('cash')+b('sti'),g:'c1'},{n:'Inventories',v:b('inv'),g:'c1'},{n:'Intangibles',v:b('intg'),g:'c2'},{n:'Lease assets',v:b('rou'),g:'c2'},{n:'Other current',v:b('ptax')+b('pexp'),g:'c1'}]
+  .sort((p,q)=>q.v-p.v);
+ const lg=legend([{c:'var(--c1)',t:'Current assets'},{c:'var(--c4)',t:'Property'},{c:'var(--c2)',t:'Goodwill and other long-term'}],W,16);
+ const top=lg.b+8,th=Math.round(Math.min(340,W*0.78)),out=[];lay(items,16,top,W-32,th,out);
+ const on={c1:'on1',c4:'on4',c2:'on2'};let s=lg.s;
+ out.forEach(r=>{s+=`<rect x="${r.x+1}" y="${r.y+1}" width="${Math.max(0,r.w-2)}" height="${Math.max(0,r.h-2)}" rx="3" style="fill:var(--${r.g})" ${tip(r.n.replace('&amp;','&')+': '+usd(r.v)+' ('+pl(r.v/BS.ta[1])+' of assets)')}/>`;
+  if(r.w>74&&r.h>40){s+=tx(r.x+8,r.y+18,r.n,{s:11.5,w:600,f:`var(--${on[r.g]})`})+tx(r.x+8,r.y+34,usd(r.v),{s:11.5,m:1,f:`var(--${on[r.g]})`});}
+  else if(r.w>46&&r.h>22){s+=tx(r.x+6,r.y+15,r.n.split(' ')[0],{s:10.5,w:600,f:`var(--${on[r.g]})`});}});
+ const y2=top+th+30,eq=BS.eq[1]/BS.ta[1],pw=W-32;
+ s+=tx(16,y2-10,'How the $2.87B of assets is funded',{w:600,s:12.5});
+ s+=`<rect x="16" y="${y2}" width="${pw*(1-eq)}" height="28" style="fill:var(--c3);stroke:var(--surface);stroke-width:1.5" ${tip('Liabilities: '+usd(BS.tl[1])+' ('+pl(1-eq)+')')}/><rect x="${16+pw*(1-eq)}" y="${y2}" width="${pw*eq}" height="28" style="fill:var(--c1);stroke:var(--surface);stroke-width:1.5" ${tip('Shareholders equity: '+usd(BS.eq[1])+' ('+pl(eq)+')')}/>`;
+ s+=tx(16+pw*(1-eq)/2,y2+18,pl(1-eq),{a:'middle',m:1,s:11.5,w:500,f:'var(--on3)'})+tx(16+pw*(1-eq)+pw*eq/2,y2+18,'Equity '+pl(eq),{a:'middle',m:1,s:11.5,w:500,f:'var(--on1)'});
+ s+=tx(16,y2+46,'Liabilities '+usd(BS.tl[1])+'  ·  no long-term debt',{s:11.5,f:'var(--muted)'});
+ return svg(W,y2+58,s,'Asset composition and funding');
+}
+
+/* ---------- CHART: lollipop ---------- */
+function rHist(W){
+ const rows=[['FY2013–FY2016 (about 13.7–13.9%)',13.8,'c2'],['FY2025',IS.oi[2]/IS.rev[2]*100,'c4'],['Last 12 months to May 30, 2026 (Brief)',5.8,'c4'],['FY2026',IS.oi[3]/IS.rev[3]*100,'c1']];
+ const pad=22,pw=W-2*pad,mx=16,X=v=>pad+pw*v/mx,rh=62,top=8,H=top+rh*rows.length+24;let s='';
+ [0,4,8,12,16].forEach(t=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${top}" y2="${H-22}" style="stroke:var(--${t===0?'axis':'line2'})"/>`+tx(X(t),H-6,t+'%',{a:'middle',s:11,f:'var(--muted)',m:1});});
+ rows.forEach((r,i)=>{const y=top+i*rh,cy=y+38;s+=tx(pad,y+14,r[0],{s:12.5,f:'var(--muted)'});
+  s+=`<line x1="${X(0)}" x2="${X(r[1])}" y1="${cy}" y2="${cy}" style="stroke:var(--${r[2]});stroke-width:3"/><circle cx="${X(r[1])}" cy="${cy}" r="9" style="fill:var(--${r[2]})" ${tip(r[0]+': '+r[1].toFixed(1)+'%')}/>`;
+  s+=tx(X(r[1])+(r[1]>12?-16:16),cy+5,r[1].toFixed(1)+'%',{a:r[1]>12?'end':'start',m:1,w:600,s:13,f:r[1]>12?'var(--bg)':'var(--fg)'});});
+ return svg(W,H,s,'Operating margin history');
+}
+
+/* ---------- HTML views: timeline and scale ---------- */
+const EV=[
+ [new Date(2026,2,10),'Cintas agrees to acquire UniFirst','$310 a share ($155 cash plus 0.772 Cintas shares), about $5.5B enterprise value.','Brief',1],
+ [new Date(2026,5,11),'UniFirst shareholders approve the merger','Regulatory review continues; the FTC issues a Second Request.','Brief',0],
+ [new Date(2026,6,2),'Canadian Competition Bureau information requests','Both companies receive a Supplementary Information Request.','Release',0],
+ [new Date(2026,6,8),'UniFirst files its Form 10-Q','Defines the FTC Second Request.','Release',0],
+ [new Date(2026,8,29),'Canadian response complete','Both companies certify they finished responding to the Bureau.','Release',0],
+ [new Date(2026,9,2),'FTC compliance certified, timing agreement signed','No closing before December 11, 2026 unless the FTC closes its investigation first.','Release',1],
+ [new Date(2026,9,21),'FY2026 results released','No guidance and no earnings call while the deal is pending.','Release',0],
+ [new Date(2026,11,11),'Earliest closing date under the FTC timing agreement','','Release',1],
+ [new Date(2026,11,31),'Expected close: before the end of calendar 2026','Subject to closing conditions and regulatory approvals.','Release',1]
+];
+function rTime(W){
+ const d0=EV[0][0].getTime(),d1=EV[EV.length-1][0].getTime(),pad=20,pw=W-2*pad,X=d=>pad+pw*(d.getTime()-d0)/(d1-d0),H=78,now=new Date();
+ let s=`<line x1="${pad}" x2="${W-pad}" y1="40" y2="40" style="stroke:var(--axis);stroke-width:3"/>`;
+ EV.forEach(e=>{s+=`<circle cx="${X(e[0])}" cy="40" r="${e[4]?7:5}" style="fill:var(--${e[4]?'c1':'c2'})" ${tip(e[0].toLocaleDateString('en-US',{month:'short',day:'numeric'})+': '+e[1])}/>`;});
+ const e8=EV[7][0];s+=`<line x1="${X(e8)}" x2="${X(e8)}" y1="22" y2="58" style="stroke:var(--c3);stroke-width:2"/>`+tx(X(e8),16,'Dec 11',{a:'middle',s:11.5,w:600,f:'var(--c3)',m:1});
+ if(now>=EV[0][0]&&now<=EV[EV.length-1][0]){s+=`<line x1="${X(now)}" x2="${X(now)}" y1="26" y2="54" style="stroke:var(--fg);stroke-dasharray:2 2"/>`+tx(X(now),70,'Today',{a:'middle',s:11.5,w:600,m:1});}
+ s+=tx(pad,70,'Mar 10',{s:11,f:'var(--muted)',m:1})+tx(W-pad,70,'Dec 31',{a:'end',s:11,f:'var(--muted)',m:1});
+ const days=Math.ceil((new Date(2026,11,11)-now)/864e5);
+ const msg=days>0?days+' days until the earliest possible closing date':'The earliest possible closing date has passed';
+ const list=EV.map(e=>`<li class="${e[4]?'key':''}"><div class="dt">${e[0].toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})} · ${e[3]}</div><div class="ev">${e[1]}</div>${e[2]?`<div class="dd">${e[2]}</div>`:''}</li>`).join('');
+ return svg(W,H,s,'Deal timeline from March to December 2026')+`<p class="note" style="margin:4px 0 10px"><b style="font-family:var(--f-m)">${msg}</b> (counted from today's date).</p><ul class="tl">${list}</ul>`;
+}
+function rScale(){
+ const T=[['270+','service locations','Release'],['300,000+','customer locations','Release'],['15,000+','employee Team Partners','Release'],['2M+','workers outfitted every day','Release'],['5','owned ISO 9001 manufacturing facilities','Release'],
+  ['$'+(IS.rev[3]/300).toFixed(1)+'K','revenue per customer location a year','Our calc.'],['281','facilities, 8.3M sq ft','Brief (FY25 10-K)'],['~4,813','vehicles','Brief (FY25 10-K)'],['325,000','sq ft owned Owensboro, KY distribution center','Brief'],['62%','of garments made in-house (76% in FY2011)','Brief']];
+ return `<div class="tiles">${T.map(t=>`<div class="tile"><b>${t[0]}</b><span>${t[1]}</span><i>${t[2]}</i></div>`).join('')}</div>`;
+}
+
+/* ---------- INSIGHTS ---------- */
+const SEGQ=[{k:'fy',l:'Full year'},{k:'q4',l:'Q4'}];
+const INS=[
+{id:'growth',g:'Growth and profit',b:'Revenue growth',h:'Revenue grew 3.7% for the year and sped up to 5.0% in Q4',sub:'Year-over-year revenue growth by segment, Q4 versus full year.',src:'is',hl:['rev','srev'],tag:['Release'],r:rGrowth,
+ take:['Q4 revenue was $645.0M, up 5.0%, faster than the 3.7% growth for the full year ($2.523B).','Every segment grew faster in Q4 than over the full year.','Core uniform and facility revenue grew 4.5% in Q4 (4.6% organic), and management said customer retention kept improving.','First Aid & Safety is the fastest grower (+13.0% in Q4, +10.9% for the year) but is only about 5% of revenue.']},
+{id:'squeeze',g:'Growth and profit',b:'Profit squeeze',h:'Sales rose 3.7% while operating income fell 26.3%',sub:'Change from FY25 to FY26 for the main profit and cash measures.',src:'is',hl:['rev','oi','ni','eps','adj'],tag:['Release','Our calc.'],r:rSqueeze,
+ take:['Revenue rose 3.7%, but operating income fell 26.3% to $136.0M, taking operating margin to 5.4% from 7.6%.','Diluted EPS dropped 24.6% to $6.02 from $7.98.','Adjusted EBITDA slipped only 2.9% to $327.1M because it adds back deal costs.','Operating cash flow fell 30.9% to $205.3M, and free cash flow (operating cash flow less capex) halved to $70.8M.']},
+{id:'bridge',g:'Growth and profit',b:'Operating income bridge',h:'Overhead, not production, drove the drop: selling and admin grew 14.1% against 3.7% revenue growth',sub:'How operating income moved from last year to this year, in $ millions.',src:'is',hl:['rev','cogs','sga','da','oi'],tag:['Release'],r:rBridge,opts:SEGQ,
+ take:['Cost of revenues grew 3.8%, in line with sales, and stayed at 63.4% of revenue.','Selling and administrative expense rose $79.8M (+14.1%), far outpacing 3.7% revenue growth.','Depreciation and amortization was flat at $142.0M.','Disclosed merger and ERP costs were $43.7M higher than last year, about 55% of the S&A increase. The release does not say which line each cost sits in.']},
+{id:'costs',g:'Growth and profit',b:'Cost structure',h:'Cost of revenues held at 63.4% of sales while selling and admin grew from 23.2% to 25.6%',sub:'Each cost line as a share of revenue.',src:'is',hl:['rev','cogs','sga','da','oi','opm'],tag:['Release','Our calc.'],r:rCost,
+ take:['Selling and administrative expense rose to 25.6% of revenue from 23.2% (+233 bps).','That one line more than explains the 220 bps operating margin decline: cost of revenues was flat at 63.4% and D&A improved 14 bps.','In Q4, S&A was 25.4% of revenue vs 23.9% a year earlier, and operating margin was 6.5% vs 8.1%.']},
+{id:'underlying',g:'Growth and profit',b:'Underlying margin',h:'Excluding disclosed merger and ERP costs, Q4 operating margin rose to about 9.1% from 8.3%',sub:'Reported operating margin versus operating margin with the disclosed costs added back.',src:'nong',hl:['cost','ni'],tag:['Our calc.'],r:rUnder,
+ take:['Adding back disclosed costs, Q4 operating margin was about 9.1%, up from 8.3%. Reported was 6.5% vs 8.1%.','Q4 underlying operating income was about $59.0M vs $51.0M, up 15.7%.','For the full year, underlying margin was about 7.4% vs 7.9%: a real but much smaller decline than the reported 5.4% vs 7.6%.','Underlying figures are our arithmetic (reported operating income plus the disclosed costs). UniFirst does not report them.']},
+{id:'eps',g:'Growth and profit',b:'EPS view',h:'Reported EPS fell 24.6% to $6.02; adding back disclosed costs it is about $8.10 vs $8.26',sub:'Diluted EPS, reported versus with disclosed merger and ERP costs added back.',src:'is',hl:['eps','tax'],tag:['Release','Our calc.'],r:rEps,opts:SEGQ,
+ take:['Diluted EPS was $6.02 vs $7.98 (−24.6%); merger and ERP costs reduced it by $2.08.','Adding the costs back gives about $8.10 vs $8.26, down 1.9%.','In Q4, EPS was $1.90 vs $2.23 as reported, but about $2.61 vs $2.28 excluding costs (+14.5%).','The Q4 tax rate was 19.8% vs 20.2%, so tax was not a driver.']},
+{id:'deal',g:'One-time costs',b:'Cost of the deal',h:'$50.5M of FY26 operating income was absorbed by merger and ERP costs, up from $6.8M',sub:'Where the disclosed one-time costs came from.',src:'nong',hl:['cost'],tag:['Release'],r:rDeal,
+ take:['Merger and ERP costs reduced FY26 operating income by $50.5M, up from $6.8M in FY25.','$37.2M were Cintas transaction costs (mostly legal, advisory and other professional fees) and $13.3M were the ERP project.','Q4 alone carried about $17.3M: $14.4M transaction costs and $2.8M ERP (rounded).','Cash paid for transaction costs was $22.5M in FY26 vs $37.2M expensed, so part has not yet been paid.','The costs reduced FY26 net income by $37.9M.']},
+{id:'ebitda',g:'One-time costs',b:'Adjusted EBITDA bridge',h:'Adjusted EBITDA of $327.1M adds back $37.2M of deal-related items but keeps the ERP cost in',sub:'From net income to adjusted EBITDA, in $ millions.',src:'nong',hl:['ni','tax','int','da','sbc','nonop','adj'],tag:['Release'],r:rEbitda,opts:[{k:'fy',l:'FY26'},{k:'q4',l:'Q4 FY26'}],
+ take:['Adjusted EBITDA was $327.1M (13.0% margin) vs $336.8M (13.8%); in Q4 it rose to $94.9M (14.7%) from $88.1M (14.3%).','FY26 adds back $37.2M of non-operating items, mostly deal-related, plus $13.1M of stock compensation.','The $13.3M ERP cost is not added back, so it still weighs on adjusted EBITDA margin by roughly half a point.','Adjusted EBITDA is a non-GAAP measure; the release reconciles it to net income.']},
+{id:'mix',g:'Segments',b:'Segment mix',h:'Core uniform and facility services is 91% of revenue and 94% of adjusted EBITDA',sub:'FY26 share of revenue and of adjusted EBITDA by segment.',src:'seg',hl:['srev','sadj'],tag:['Release','Our calc.'],r:rMix,
+ take:['Core uniform and facility services is 91.0% of revenue and 94.3% of adjusted EBITDA.','First Aid & Safety is 5.0% of revenue but only 0.2% of adjusted EBITDA ($0.7M).','Nuclear and other is 4.0% of revenue but 5.5% of adjusted EBITDA, at a 17.9% margin.','First Aid & Safety lost $4.6M at the operating line in FY26 as UniFirst invests in its First Aid van business.']},
+{id:'segm',g:'Segments',b:'Segment margins',h:'Core margin improved to 15.5% in Q4 even as the full-year margin slipped to 13.4%',sub:'Adjusted EBITDA margin by segment.',src:'seg',hl:['sadj','srev'],tag:['Release','Our calc.'],r:rSegM,opts:[{k:'q4',l:'Q4'},{k:'fy',l:'Full year'}],
+ take:['Core adjusted EBITDA margin rose to 15.5% in Q4 (from 14.8%) but slipped to 13.4% for the year (from 14.1%).','Q4 core margin benefited from lower merchandise and selling costs as a share of revenue, partly offset by higher production and healthcare claims costs.','First Aid & Safety posted a small adjusted EBITDA loss in Q4 (−$0.1M) as investment continued.','Nuclear margin was 17.1% in Q4 (14.9% a year ago) but is seasonal and project-driven.']},
+{id:'cash',g:'Cash and balance sheet',b:'Cash flow bridge',h:'Operating cash flow fell $91.6M, yet UniFirst ended the year with $192.1M in cash and no long-term debt',sub:'FY26 cash from start to finish, in $ millions.',src:'cf',hl:['cfo','capex','acq','rep','div','end','beg','net'],tag:['Release','Our calc.'],r:rCash,
+ take:['Cash from operations fell $91.6M to $205.3M, while capex fell $19.8M to $134.5M.','Free cash flow (operating cash flow less capex) was $70.8M vs $142.5M.','UniFirst still ended the year with $192.1M in cash and no long-term debt; cash fell $11.4M.','Operating cash flow was 1.9x net income, vs 2.0x a year earlier, helped by $142.0M of D&A.']},
+{id:'wc',g:'Cash and balance sheet',b:'Working capital',h:'Working capital swung from an $8.3M cash drag to a $72.5M drag',sub:'Cash effect of working capital lines on the cash flow statement, in $ millions.',src:'cf',hl:['recv','inv','rent','pre','ap','acc','tax'],tag:['Release'],r:rWc,
+ take:['Working capital absorbed $72.5M of cash in FY26 vs $8.3M in FY25.','Receivables grew 7.6% to $307.0M against 3.7% revenue growth; days of sales outstanding moved to about 44 from about 43 (our calc.).','Rental merchandise in service used $16.8M of cash, vs a $10.0M source a year ago.','Inventories were flat at $146.4M (+0.8%).']},
+{id:'capital',g:'Cash and balance sheet',b:'Capital allocation',h:'Buybacks were cut by more than half while dividends rose 2.1% and acquisitions doubled',sub:'Free cash flow and how cash was used, in $ millions.',src:'cf',hl:['capex','cfo','rep','div','acq'],tag:['Release','Our calc.'],r:rCap,
+ take:['Share repurchases fell to $32.7M from $70.9M; dividends rose 2.1% to $25.2M.','UniFirst repurchased 194,100 shares for about $31.7M, an average of about $163 a share (our calc.), with $8.9M left on the authorization.','Dividends plus buybacks used 82% of free cash flow, vs 67% a year ago.','Acquisitions doubled to $24.6M from $11.9M.']},
+{id:'balance',g:'Cash and balance sheet',b:'Balance sheet',h:'Equity funds 78% of $2.87B in assets, and there is no long-term debt',sub:'Asset mix at August 29, 2026 and how it is funded.',src:'bs',hl:['ta','tl','eq','gw','ppe','tca'],tag:['Release','Our calc.'],r:rBalance,
+ take:['Total assets are $2.87B and 77.7% is funded by equity ($2.23B); there is no long-term debt.','The current ratio is 3.1x (3.2x a year ago).','Goodwill is $675.4M, 23.5% of assets; property, plant and equipment is $843.6M.','Rental merchandise in service rose 7.4% to $244.6M, and receivables rose 7.6% to $307.0M.']},
+{id:'history',g:'Context',b:'Margin history',h:'Operating margin is 5.4%, down from about 13.8% in FY2013–FY2016',sub:'Operating income as a percent of revenue.',src:'is',hl:['opm','oi'],tag:['Release','Brief'],r:rHist,
+ take:['Operating margin of 5.4% compares with about 13.7–13.9% in FY2013–FY2016 (Brief).','Closing that gap would be worth roughly $210M of operating income on FY26 revenue. This is illustrative arithmetic, not a forecast.','In-house garment production was 62% of garments in FY2025, down from 76% in FY2011 (Brief).','UniFirst makes its own branded workwear in plants in Mexico and Nicaragua; mats are made in Cave City, Arkansas (Brief).']},
+{id:'timeline',g:'Context',b:'Deal timeline',h:'Earliest possible close is December 11, 2026, and both companies still expect to close by year end',sub:'Milestones in the Cintas acquisition of UniFirst.',src:'is',hl:[],tag:['Release','Brief'],r:rTime,
+ take:['The earliest possible close is December 11, 2026, unless the FTC closes its investigation sooner; the companies still expect to close before year end.','Cintas agreed on March 10 to pay $310 a share ($155 cash plus 0.772 Cintas shares), about $5.5B enterprise value; shareholders approved on June 11 (Brief).','Both companies certified substantial compliance with the FTC Second Request on October 2, and completed the Canadian Competition Bureau response on September 29.','At $310 the price is about 51x FY26 diluted EPS, about 38x EPS excluding disclosed costs, and about 16.8x FY26 adjusted EBITDA on a $5.5B enterprise value (our arithmetic).','While the deal is pending, UniFirst gives no guidance and holds no earnings calls.']},
+{id:'scale',g:'Context',b:'Scale and systems',h:'A 300,000-location service network that outfits more than 2 million workers a day',sub:'Operating footprint from the release and the public data brief.',src:'is',hl:[],tag:['Release','Brief','Our calc.'],r:rScale,
+ take:['More than 270 service locations, over 300,000 customer locations and 15,000-plus employees outfit more than 2 million workers a day.','Revenue per customer location is about $8.4K a year (our arithmetic, using 300,000).','FY2025 10-K data: 281 facilities, 8.3M sq ft, about 4,813 vehicles, and an owned 325,000 sq ft distribution center in Owensboro, KY (Brief).','A material weakness in internal control (CRM and legacy system change, access controls) was disclosed in the FY2025 10-K, and the release still lists remediation as a risk.','A new warehouse management system went live in Q3 FY2026; the ERP rollout (Oracle Cloud planned) runs through 2027 (Brief).']}
+];
+
+
+const ELI={
+growth:'Did the company sell more than last year? Yes, a bit more, and it sped up near the end of the year.',
+squeeze:'Sales went up but profit went down a lot, like selling more lemonade but keeping less money because the bills got bigger.',
+bridge:'A step-by-step walk from last year\u2019s profit to this year\u2019s: what added money and what took it away.',
+costs:'For every $1 of sales, how many cents go to each kind of cost and how many cents are left as profit.',
+underlying:'If we ignore the one-time bills from the merger and the computer-system project, how is the normal business doing?',
+eps:'Profit per share of stock, with and without the one-time bills.',
+deal:'How much the company spent on the Cintas deal and its new computer system, drawn as 100 little squares.',
+ebitda:'A popular profit number that ignores interest, taxes and wear and tear. This shows how to get from real profit to that number.',
+mix:'Which parts of the company bring in the sales, and which parts bring in the profit.',
+segm:'How much profit each part of the company keeps from every $1 of sales, this year versus last year.',
+cash:'Follow the money in the bank account: what came in, what went out, and what is left.',
+wc:'Money stuck in bills customers haven\u2019t paid yet and in uniforms waiting to be rented out.',
+capital:'What the company did with its spare cash: buy back its own shares, pay owners, or buy other businesses.',
+balance:'What the company owns, and how much of it is paid for with the owners\u2019 money instead of debt.',
+history:'How much profit the company keeps from every $1 of sales now compared with about ten years ago.',
+timeline:'The calendar for when the Cintas purchase can finally happen.',
+scale:'How big the company is: places, customers, people and trucks.'
+};
+INS.forEach(i=>{i.eli=ELI[i.id];});
+const WHY={
+growth:[
+["What moved","Revenue grew 3.7% to $2.523B for the year, then 5.0% in Q4 alone.","Release"],
+["Why it moved","Core uniform and facility services (91% of sales) grew 4.5% in Q4, 4.6% organically, and management said customer retention kept improving. First Aid & Safety grew 13.0% in Q4.","Release"],
+["The logic","If Q4 grew 5.0% and the full year grew 3.7%, the first three quarters must have grown only about 3.3% ($1.818B to $1.878B). Growth sped up late in the year.","Our calc."],
+["So what","One fast quarter is a good sign, not yet a trend. First Aid & Safety is growing fastest but is only 5% of sales, so core retention does most of the work.","Our reading"]],
+squeeze:[
+["What moved","Revenue rose 3.7%. Operating income fell 26.3% to $136.0M, net income fell 26.2% and EPS fell 24.6% to $6.02.","Release"],
+["Why it moved","Costs grew faster than sales. Selling and admin expense rose 14.1%, while cost of revenues grew 3.8%, in line with sales.","Release"],
+["The logic","Operating expenses rose $139.3M while revenue rose only $90.9M. That $48.5M gap is exactly the fall in operating income. Of it, $43.7M matches the rise in disclosed merger and ERP costs ($50.5M vs $6.8M).","Our calc."],
+["Why EBITDA barely moved","Adjusted EBITDA adds back the $37.2M of deal-related items plus D&A and stock compensation, so it fell only 2.9%. The profit squeeze shows up in operating income and EPS but is mostly hidden in EBITDA.","Release"],
+["So what","This looks more like a one-off cost year than a sales problem. The cash story is separate and weaker: operating cash flow fell 30.9%.","Our reading"]],
+bridge:[
+["What moved","Revenue added $90.9M. Cost of revenues took back $57.9M, selling and admin $79.8M and D&A $1.6M. Net result: operating income down $48.5M.","Release"],
+["The logic","For each extra $1 of sales, about 64 cents went to production cost, leaving about 36 cents. But selling and admin rose about 88 cents per extra $1 of sales. 36 minus 88 minus 2 for D&A leaves a loss of about 54 cents on each new dollar.","Our calc."],
+["Why selling and admin jumped","Disclosed merger and ERP costs were $43.7M higher than last year. If they sit in this line, they explain about 55% of the increase, and the other $36.1M (+6.4%) still grew faster than sales. The release does not say which line holds them.","Release"],
+["Q4 pattern","Q4 shows the same shape: selling and admin rose $16.8M, and disclosed costs rose $15.9M, which would account for nearly all of it.","Our calc."],
+["So what","Production efficiency held. The question is how much of the overhead step-up repeats after the deal closes.","Our reading"]],
+costs:[
+["What moved","Selling and admin went to 25.6% of revenue from 23.2%. Cost of revenues stayed at 63.4%. D&A eased to 5.6% from 5.8%.","Release"],
+["The logic","Operating margin is 100% minus the three cost shares. Last year: 63.4 + 23.2 + 5.8 = 92.4, leaving 7.6%. This year: 63.4 + 25.6 + 5.6 = 94.6, leaving 5.4%. Only one line moved, and it moved 233 bps against a 219 bps margin decline.","Our calc."],
+["Why it moved","The deal and ERP costs are the disclosed driver. In Q4, selling and admin was 25.4% of revenue vs 23.9%, and operating margin was 6.5% vs 8.1%.","Release"],
+["So what","Because the damage sits in one line, the margin outlook depends on how much of that line is temporary.","Our reading"]],
+underlying:[
+["What moved","Reported Q4 operating margin fell to 6.5% from 8.1%. With the disclosed merger and ERP costs added back it rose to about 9.1% from 8.3%.","Our calc."],
+["Why the two disagree","Q4 carried $17.3M of these costs vs $1.4M a year ago. That is about 2.7 points of revenue this year against 0.2 points last year, enough to flip a margin gain of about 85 bps into a reported loss of about 160 bps.","Our calc."],
+["The logic","Underlying operating income = reported + disclosed costs. Q4: $41.7M + $17.3M = $59.0M vs $49.6M + $1.4M = $51.0M, up 15.7% on revenue up 5.0%.","Our calc."],
+["The catch","The full year is less rosy: underlying operating income was about $186.5M vs $191.3M (margin 7.4% vs 7.9%). That means the first three quarters were down about 9% and Q4 reversed it.","Our calc."],
+["Not in the release","UniFirst does not report underlying operating income or margin. These are our additions, and they assume the disclosed costs are fully one-off.","Caveat"]],
+eps:[
+["What moved","Diluted EPS was $6.02 vs $7.98. Adding back the cost impact ($2.08 vs $0.28) gives about $8.10 vs $8.26, down 1.9%.","Release"],
+["Why it moved","The merger and ERP costs reduced net income by $37.9M after tax. Net income fell 26.2%, but EPS fell a bit less (24.6%) because buybacks shrank the share count by about 2%.","Our calc."],
+["Q4 view","Reported Q4 EPS was $1.90 vs $2.23. Excluding costs it was about $2.61 vs $2.28, up 14.5%.","Our calc."],
+["Not a tax story","The full-year tax rate was 22.9% vs 24.1%, and Q4 was 19.8% vs 20.2%.","Our calc."],
+["So what","The EPS decline is almost entirely the cost items. Whether you add them back is the whole debate.","Our reading"]],
+deal:[
+["What moved","Merger and ERP costs cut operating income by $50.5M, up from $6.8M last year.","Release"],
+["Why it moved","$37.2M was Cintas transaction cost (mostly legal, advisory and other professional fees), which did not exist before the deal was announced on March 10. $13.3M was the ERP project, up from $6.8M.","Release"],
+["The logic","Q4 alone carried $14.4M of transaction cost, 39% of the year's total, which fits fees building up as the FTC and Canadian reviews progressed. The costs cut net income by $37.9M, or $2.08 a share.","Our calc."],
+["Cash vs expense","Cash paid for transaction costs was $22.5M against $37.2M expensed, so about $14.7M is still to be paid.","Release"],
+["So what","Transaction costs should continue until closing, and the ERP rollout runs through 2027 (Brief).","Our reading"]],
+ebitda:[
+["What moved","Adjusted EBITDA was $327.1M (13.0% margin) vs $336.8M (13.8%), down 2.9%. In Q4 it rose 7.7% to $94.9M.","Release"],
+["The logic","It starts at net income and adds back what is not core operations: $109.5M + $32.6M taxes − $7.2M interest income + $142.0M D&A + $13.1M stock compensation + $37.2M non-operating items = $327.1M.","Release"],
+["Why it fell so little","Net income dropped $38.8M, but the $37.2M non-operating add-back (vs $1.4M a year ago) almost exactly cancels it.","Our calc."],
+["What it leaves out","The $13.3M ERP cost is not added back, which holds margin about half a point lower. EBITDA also ignores capex: $327.1M of EBITDA became only $70.8M of free cash flow after $134.5M of capex and the other items.","Our calc."],
+["So what","Use adjusted EBITDA to compare operations, and free cash flow to judge what the owners actually received.","Our reading"]],
+mix:[
+["What moved","Core uniform & facility is 91.0% of revenue and 94.3% of adjusted EBITDA. First Aid & Safety is 5.0% and 0.2%. Nuclear and other is 4.0% and 5.5%.","Release"],
+["The logic","A segment with a bigger share of profit than of sales earns an above-average margin. Adjusted EBITDA margins: nuclear 17.9%, core 13.4%, total 13.0%, First Aid & Safety 0.6%.","Our calc."],
+["Why First Aid is small in profit","Revenue grew 10.9%, but the segment is investing ahead of sales and lost $4.6M at the operating line in FY26.","Release"],
+["So what","UniFirst's results are a core-business story. First Aid & Safety is a growth bet that cannot move group profit yet.","Our reading"]],
+segm:[
+["What moved","Core adjusted EBITDA margin rose to 15.5% in Q4 from 14.8%, but slipped to 13.4% for the year from 14.1%.","Release"],
+["Why it moved","In Q4, merchandise and selling costs fell as a share of revenue, partly offset by higher production and healthcare claims costs.","Release"],
+["The logic","For the first three quarters, core margin was about 12.7% vs 13.9% a year ago, down about 115 bps. Q4 then improved about 67 bps. A weak start and a strong finish net out to the full-year decline.","Our calc."],
+["Other segments","First Aid & Safety posted a small Q4 adjusted EBITDA loss (−$0.1M) while investing. Nuclear margin was 17.1% (14.9% a year ago); its revenue is project-driven.","Release"],
+["So what","The margin trend turned up in the last quarter. It needs a second quarter to confirm.","Our reading"]],
+cash:[
+["What moved","Operating cash flow fell $91.6M to $205.3M. Cash still ended the year at $192.1M, down only $11.4M, with no long-term debt.","Release"],
+["Why it moved","Of the $91.6M decline: net income fell $38.8M and working capital swung $64.2M worse. Other non-cash items offset $11.4M.","Our calc."],
+["The logic","The company covered the shortfall by spending less: buybacks fell $38.2M and capex fell $19.8M. $205.3M of operating cash − $134.5M capex − $24.6M acquisitions − $32.7M buybacks − $25.2M dividends leaves about −$11.7M, close to the actual cash change.","Our calc."],
+["So what","The balance sheet absorbed a rough year with no borrowing. Free cash flow of $70.8M (half last year's) is the number to watch.","Our reading"]],
+wc:[
+["What moved","Working capital used $72.5M of cash in FY26 vs $8.3M in FY25.","Release"],
+["Why it moved","Biggest swings: rental merchandise in service (+$10.0M to −$16.8M), income taxes (+$6.6M to −$8.6M), receivables (−$6.5M to −$21.3M) and inventories (+$12.3M to −$0.4M). Prepaid items improved by $8.8M.","Release"],
+["The logic","The balance sheet agrees: receivables grew 7.6% and rental merchandise 7.4% against sales growth of 3.7%. Balances growing about twice as fast as sales tie up cash. Days of sales outstanding moved to about 44 from about 43.","Our calc."],
+["Not in the release","The release does not say why. Possible reasons are customer payment timing, garment purchases ahead of demand or the ERP transition, but none is confirmed.","Caveat"],
+["So what","This is about 70% of the operating cash decline. If it reverses, cash recovers. If it is structural, it does not.","Our reading"]],
+capital:[
+["What moved","Buybacks fell to $32.7M from $70.9M. Dividends rose 2.1% to $25.2M. Acquisitions doubled to $24.6M from $11.9M.","Release"],
+["Why it moved","Free cash flow halved to $70.8M, so there was less to hand back to owners.","Our calc."],
+["The logic","Dividends plus buybacks took 82% of free cash flow, vs 67% a year ago, even though the dollar amount fell. Dividends, buybacks and acquisitions together ($82.5M) exceeded free cash flow by about $11.7M, which is why cash fell about $11.4M.","Our calc."],
+["Detail","UniFirst repurchased 194,100 shares for about $31.7M (about $163 each), with $8.9M left on the authorization.","Release"],
+["So what","The dividend is the sticky payment and kept growing. Buybacks were the flexible lever, and management pulled it.","Our reading"]],
+balance:[
+["What moved","Total assets are $2.87B. Equity funds 77.7% of them ($2.23B), liabilities are $641M, and there is no long-term debt. The current ratio is 3.1x.","Release"],
+["Why it looks this way","UniFirst grows from its own earnings. Retained earnings rose $53.9M, which is most of net income less dividends and buybacks.","Our calc."],
+["The logic","Assets that grew: receivables +$21.7M, rental merchandise +$16.9M, goodwill +$17.6M (from $24.6M of acquisitions) and property +$14.0M. Cash was the only major item that shrank (−$11.4M), so growth was funded from cash, not borrowing.","Our calc."],
+["So what","The balance sheet is a cushion for a rough year. One flag: goodwill is 23.5% of assets, so acquisitions have to keep earning their price.","Our reading"]],
+history:[
+["What moved","FY26 operating margin is 5.4%. It was 7.6% in FY25 and about 13.7–13.9% in FY2013–FY2016. The twelve months to May 30, 2026 were about 5.8%.","Brief"],
+["The logic","The gap to the old level is about 8.4 points. On FY26 revenue of $2.52B, that is roughly $212M of operating income. Illustrative arithmetic, not a forecast.","Our calc."],
+["Why it moved","The release does not explain the long decline. The brief notes structural changes such as in-house garment production falling to 62% from 76% in FY2011, but it does not prove they caused it.","Caveat"],
+["This year's part","Excluding disclosed costs, the margin slipped from 7.9% to 7.4%. So this year added only about half a point to a long decline.","Our calc."],
+["So what","The deal costs explain the FY26 drop. They do not explain why the margin was about 8 points higher a decade ago.","Our reading"]],
+timeline:[
+["What moved","Cintas agreed on March 10 to buy UniFirst for $310 a share ($155 cash plus 0.772 Cintas shares), about $5.5B enterprise value. Shareholders approved on June 11.","Brief"],
+["Why it takes time","The FTC issued a Second Request and the Canadian Competition Bureau asked for more information. Both companies certified they finished the Canadian response (September 29) and the FTC compliance (October 2).","Release"],
+["The logic","Under the timing agreement, no closing can happen before December 11, 2026 unless the FTC closes its investigation first. Both companies still expect to close before year end.","Release"],
+["What the price implies","$310 is about 51x FY26 diluted EPS, about 38x EPS excluding disclosed costs and about 16.8x FY26 adjusted EBITDA (on $5.5B enterprise value).","Our calc."],
+["So what","While the deal is pending there is no guidance and no earnings call, so this release is the main data point investors get.","Our reading"]],
+scale:[
+["What moved","More than 270 service locations and 300,000 customer locations, over 15,000 employees, and more than 2 million workers outfitted every day.","Release"],
+["Why scale matters","The network of routes, plants and vehicles is a largely fixed cost. More revenue per route stop spreads it thinner. Revenue per customer location works out to about $8.4K a year.","Our calc."],
+["The footprint","FY2025 10-K data: 281 facilities (8.3M sq ft), about 4,813 vehicles, five owned ISO 9001 plants, and a 325,000 sq ft owned distribution center in Owensboro, KY.","Brief"],
+["Systems risk","The FY2025 10-K disclosed a material weakness in internal control tied to CRM and legacy system change. A new warehouse management system went live in Q3 FY2026 and the ERP rollout runs through 2027.","Brief"],
+["So what","This is a physical network business, so cost control and systems execution drive margins as much as sales growth.","Our reading"]]
+};
+INS.forEach(i=>{i.why=WHY[i.id];});
+/* ---------- SOURCE TABLES ---------- */
+const row=(k,l,v,o={})=>Object.assign({k,l,v},o);
+const mgnRow=(k,l,num,den)=>row(k,l,[0,1,2,3].map(i=>num(i)/den(i)),{f:'p',cls:'it'});
+const TABS=[
+ {id:'is',l:'Income statement',cols:['Q4 FY25','Q4 FY26','FY25','FY26','FY Δ'],note:'Q4 = thirteen weeks; FY = fifty-two weeks ended August 29, 2026 vs August 30, 2025. Cost of revenues and S&A are shown excluding depreciation and amortization, as in the release.',rows:[
+  row('rev','Revenues',IS.rev,{d:1,cls:'b'}),row('cogs','Cost of revenues',IS.cogs,{d:1}),row('sga','Selling & administrative',IS.sga,{d:1}),row('da','Depreciation & amortization',IS.da,{d:1}),row('opex','Total operating expenses',IS.opex,{d:1}),
+  row('oi','Operating income',IS.oi,{d:1,cls:'b'}),mgnRow('opm','Operating margin',i=>IS.oi[i],i=>IS.rev[i]),
+  row('intinc','Interest income, net',IS.intinc),row('oth','Other expense (income), net',IS.oth),row('toth','Total other income, net',IS.toth),row('pbt','Income before income taxes',IS.pbt,{d:1}),row('tax','Provision for income taxes',IS.tax,{d:1}),
+  row('ni','Net income',IS.ni,{d:1,cls:'b'}),row('eps','Diluted EPS ($)',IS.eps,{f:'e',d:1,cls:'b'}),
+  row('adj','Adjusted EBITDA (non-GAAP)',IS.adj,{d:1,cls:'b'}),mgnRow('adjm','Adjusted EBITDA margin',i=>IS.adj[i],i=>IS.rev[i])]},
+ {id:'seg',l:'Segments',cols:['Q4 FY25','Q4 FY26','FY25','FY26','FY Δ'],note:'Segment operating income and adjusted EBITDA as reported. Margins are our calculation.',rows:[
+  row('s1','Revenue',null,{sec:1}),row('srev-u','Core uniform & facility',SEG.u.rev,{d:1}),row('srev-f','First Aid & Safety',SEG.f.rev,{d:1}),row('srev-o','Other (nuclear)',SEG.o.rev,{d:1}),row('srev-t','Total',IS.rev,{d:1,cls:'b'}),
+  row('s2','Operating income (loss)',null,{sec:1}),row('soi-u','Core uniform & facility',SEG.u.oi,{d:1}),row('soi-f','First Aid & Safety',SEG.f.oi),row('soi-o','Other (nuclear)',SEG.o.oi,{d:1}),row('soi-t','Total',IS.oi,{d:1,cls:'b'}),
+  row('s3','Adjusted EBITDA',null,{sec:1}),row('sadj-u','Core uniform & facility',SEG.u.adj,{d:1}),row('sadj-f','First Aid & Safety',SEG.f.adj),row('sadj-o','Other (nuclear)',SEG.o.adj,{d:1}),row('sadj-t','Total',IS.adj,{d:1,cls:'b'}),
+  row('s4','Adjusted EBITDA margin',null,{sec:1}),
+  mgnRow('sadjm-u','Core uniform & facility',i=>SEG.u.adj[i],i=>SEG.u.rev[i]),mgnRow('sadjm-f','First Aid & Safety',i=>SEG.f.adj[i],i=>SEG.f.rev[i]),mgnRow('sadjm-o','Other (nuclear)',i=>SEG.o.adj[i],i=>SEG.o.rev[i]),mgnRow('sadjm-t','Total',i=>IS.adj[i],i=>IS.rev[i])]},
+ {id:'bs',l:'Balance sheet',cols:['Aug 30, 2025','Aug 29, 2026','Δ'],note:'Condensed consolidated balance sheet, unaudited.',rows:[
+  row('s1','Assets',null,{sec:1}),row('cash','Cash and cash equivalents',BS.cash,{d:1}),row('sti','Short-term investments',BS.sti),row('recv','Receivables, net',BS.recv,{d:1}),row('inv','Inventories',BS.inv,{d:1}),row('rent','Rental merchandise in service',BS.rent,{d:1}),row('ptax','Prepaid taxes',BS.ptax,{d:1}),row('pexp','Prepaid expenses and other',BS.pexp,{d:1}),row('tca','Total current assets',BS.tca,{d:1,cls:'b'}),
+  row('ppe','Property, plant and equipment, net',BS.ppe,{d:1}),row('gw','Goodwill',BS.gw,{d:1}),row('intg','Customer contracts and intangibles, net',BS.intg,{d:1}),row('dta','Deferred income taxes',BS.dta),row('rou','Operating lease right-of-use assets',BS.rou,{d:1}),row('oa','Other assets',BS.oa,{d:1}),row('ta','Total assets',BS.ta,{d:1,cls:'b'}),
+  row('s2','Liabilities and equity',null,{sec:1}),row('ap','Accounts payable',BS.ap,{d:1}),row('acc','Accrued liabilities',BS.acc,{d:1}),row('atax','Accrued taxes',BS.atax),row('lcur','Operating lease liabilities, current',BS.lcur,{d:1}),row('tcl','Total current liabilities',BS.tcl,{d:1,cls:'b'}),
+  row('ltacc','Accrued liabilities (long-term)',BS.ltacc,{d:1}),row('dtl','Accrued and deferred income taxes',BS.dtl,{d:1}),row('llt','Operating lease liabilities',BS.llt,{d:1}),row('tl','Total liabilities',BS.tl,{d:1,cls:'b'}),
+  row('com','Common stock',BS.com),row('clb','Class B common stock',BS.clb),row('sur','Capital surplus',BS.sur,{d:1}),row('re','Retained earnings',BS.re,{d:1}),row('aoci','Accumulated other comprehensive loss',BS.aoci),row('eq','Total shareholders’ equity',BS.eq,{d:1,cls:'b'})],two:1},
+ {id:'cf',l:'Cash flow',cols:['FY25','FY26','Δ $'],note:'Consolidated statement of cash flows, fifty-two weeks. The release text cites about $31.7M for share repurchases; the statement shows $32.7M.',rows:[
+  row('s1','Operating activities',null,{sec:1}),row('ni','Net income',CF.ni,{a:1}),row('da','Depreciation and amortization',CF.da,{a:1}),row('sbc','Share-based compensation',CF.sbc,{a:1}),row('env','Accretion, environmental',CF.env,{a:1}),row('aro','Accretion, asset retirement',CF.aro,{a:1}),row('dtx','Deferred income taxes',CF.dtx,{a:1}),row('gain','Loss (gain) on sale of property',CF.gain,{a:1}),row('oth','Other',CF.oth,{a:1}),
+  row('recv','Receivables',CF.recv,{a:1}),row('inv','Inventories',CF.inv,{a:1}),row('rent','Rental merchandise in service',CF.rent,{a:1}),row('pre','Prepaid and other assets',CF.pre,{a:1}),row('ap','Accounts payable',CF.ap,{a:1}),row('acc','Accrued liabilities',CF.acc,{a:1}),row('tax','Prepaid and accrued income taxes',CF.tax,{a:1}),row('cfo','Net cash from operating activities',CF.cfo,{a:1,cls:'b'}),
+  row('s2','Investing activities',null,{sec:1}),row('acq','Acquisitions, net of cash',CF.acq,{a:1}),row('capex','Capital expenditures',CF.capex,{a:1}),row('buy','Purchases of investments',CF.buy,{a:1}),row('mat','Maturities of investments',CF.mat,{a:1}),row('proc','Proceeds from sale of assets',CF.proc,{a:1}),row('cfi','Net cash used in investing',CF.cfi,{a:1,cls:'b'}),
+  row('s3','Financing activities',null,{sec:1}),row('cont','Contingent consideration',CF.cont,{a:1}),row('dfc','Deferred financing costs',CF.dfc,{a:1}),row('exer','Exercise of share-based awards',CF.exer,{a:1}),row('wh','Taxes withheld on equity awards',CF.wh,{a:1}),row('rep','Repurchase of common stock',CF.rep,{a:1}),row('div','Cash dividends',CF.div,{a:1}),row('cff','Net cash used in financing',CF.cff,{a:1,cls:'b'}),
+  row('fx','Effect of exchange rates',CF.fx,{a:1}),row('net','Net change in cash',CF.net,{a:1,cls:'b'}),row('beg','Cash, beginning of period',CF.beg,{a:1}),row('end','Cash, end of period',CF.end,{a:1,cls:'b'})],two:1},
+ {id:'nong',l:'Adj. EBITDA',cols:['Q4 FY25','Q4 FY26','FY25','FY26','FY Δ'],note:'Adjusted EBITDA reconciliation as reported. Disclosed costs are in $ millions as stated in the release; the Q4 FY26 parts ($14.4M and $2.8M) sum to $17.2M against $17.3M reported because of rounding.',rows:[
+  row('ni','Net income',NG.ni),row('tax','Provision for income taxes',NG.tax),row('int','Interest income, net',NG.int),row('da','Depreciation and amortization',NG.da),row('sbc','Share-based compensation',NG.sbc),row('gain','Gain on sale of non-operating property',NG.gain),row('nonop','Non-operating adjustments',NG.nonop),row('adj','Adjusted EBITDA',NG.adj,{cls:'b',d:1}),
+  row('s5','Disclosed one-time costs ($M)',null,{sec:1}),row('cost','Merger and ERP costs, operating income impact',IS.costOI,{f:'m'}),row('costtx','Transaction costs (merger)',IS.txn,{f:'m'}),row('costki','ERP project (Key Initiative)',IS.ki,{f:'m'}),row('costni','Net income impact',IS.costNI,{f:'m'}),row('costeps','Diluted EPS impact ($)',IS.costEPS,{f:'e'})]}
+];
+function fmtCell(v,r){if(r.f==='p')return(v*100).toFixed(1)+'%';if(r.f==='e')return v.toFixed(2);if(r.f==='m')return v===0?'—':v.toFixed(1);return nf(v);}
+function tableHtml(t){
+ const th='<tr><th>$ thousands</th>'+t.cols.map(c=>`<th>${c}</th>`).join('')+'</tr>';
+ const body=t.rows.map(r=>{
+  if(r.sec)return `<tr class="sec" data-k="${r.k}"><td colspan="${t.cols.length+1}">${r.l}</td></tr>`;
+  const n=r.v.length,cells=r.v.map(v=>`<td>${fmtCell(v,r)}</td>`).join('');
+  let d='';
+  if(t.cols.length>n){let c='',txt='—';
+   if(r.d){const x=r.v[n-1]/r.v[n===4?2:0]-1;txt=pc(x);c=x<0?'dn':'up';}
+   else if(r.a){const x=r.v[1]-r.v[0];txt=(x>0?'+':x<0?'−':'')+Math.abs(x).toLocaleString('en-US');c=x<0?'dn':'up';if(x===0){txt='—';c='';}}
+   if(r.f==='p'){const x=(r.v[3]-r.v[2])*10000;txt=(x>0?'+':'−')+Math.abs(Math.round(x))+' bps';c=x<0?'dn':'up';}
+   d=`<td class="${c}">${txt}</td>`;}
+  return `<tr class="${r.cls||''}" data-k="${r.k}"><td>${r.l}</td>${cells}${d}</tr>`;}).join('');
+ return `<div class="tw"><table><thead>${th}</thead><tbody>${body}</tbody></table></div>`;
+}
+/* balance sheet delta column: pct */
+TABS[2].rows.forEach(r=>{if(r.v)r.d=r.d||0;});
+TABS[2].rows.forEach(r=>{if(r.v&&!r.d&&!r.a){r.a=1;}});
+
+/* ---------- TIE-OUTS ---------- */
+function ties(){
+ const T=[];const add=(l,a,b)=>T.push({l,a,b,ok:Math.abs(a-b)<1e-6});
+ add('FY26: revenue − operating expenses = operating income',IS.rev[3]-IS.opex[3],IS.oi[3]);
+ add('Q4 FY26: revenue − operating expenses = operating income',IS.rev[1]-IS.opex[1],IS.oi[1]);
+ add('FY26: cost of revenues + S&A + D&A = operating expenses',IS.cogs[3]+IS.sga[3]+IS.da[3],IS.opex[3]);
+ add('FY26: operating income − other income = pre-tax income',IS.oi[3]-IS.toth[3],IS.pbt[3]);
+ add('FY26: pre-tax income − tax = net income',IS.pbt[3]-IS.tax[3],IS.ni[3]);
+ add('FY26: segment revenues add to total',SEG.u.rev[3]+SEG.f.rev[3]+SEG.o.rev[3],IS.rev[3]);
+ add('FY26: segment operating income adds to total',SEG.u.oi[3]+SEG.f.oi[3]+SEG.o.oi[3],IS.oi[3]);
+ add('FY26: segment adjusted EBITDA adds to total',SEG.u.adj[3]+SEG.f.adj[3]+SEG.o.adj[3],IS.adj[3]);
+ add('Aug 29, 2026: assets = liabilities + equity',BS.tl[1]+BS.eq[1],BS.ta[1]);
+ add('Aug 29, 2026: current assets add up',BS.cash[1]+BS.sti[1]+BS.recv[1]+BS.inv[1]+BS.rent[1]+BS.ptax[1]+BS.pexp[1],BS.tca[1]);
+ add('FY26: operating + investing + financing + FX = change in cash',CF.cfo[1]+CF.cfi[1]+CF.cff[1]+CF.fx[1],CF.net[1]);
+ add('FY26: beginning cash + change = ending cash',CF.beg[1]+CF.net[1],CF.end[1]);
+ add('FY26: net income to adjusted EBITDA reconciliation',NG.ni[3]+NG.tax[3]+NG.int[3]+NG.da[3]+NG.sbc[3]+NG.gain[3]+NG.nonop[3],IS.adj[3]);
+ add('Q4 FY26: net income to adjusted EBITDA reconciliation',NG.ni[1]+NG.tax[1]+NG.int[1]+NG.da[1]+NG.sbc[1]+NG.gain[1]+NG.nonop[1],IS.adj[1]);
+ add('FY26: transaction + ERP costs = $50.5M (rounded)',Math.round((IS.txn[3]+IS.ki[3])*10)/10,IS.costOI[3]);
+ return T;
+}
+const SRC_LINE='Source: UniFirst press release, October 21, 2026.';
+</script>
+
+<script id="ui">
+(function(){
+const $=id=>document.getElementById(id);
+const kp=[
+ ['Revenue',usd(IS.rev[3],0).replace('.0','')+'',null,pc(gr(IS.rev,2,3)),gr(IS.rev,2,3)>0,'Q4 '+pc(gr(IS.rev,0,1))+' · FY25 $2.432B'],
+ ['Operating income',usd(IS.oi[3]),null,pc(gr(IS.oi,2,3)),false,'margin 5.4% vs 7.6%'],
+ ['Adjusted EBITDA',usd(IS.adj[3]),null,pc(gr(IS.adj,2,3)),false,'margin 13.0% vs 13.8%'],
+ ['Diluted EPS','$'+IS.eps[3].toFixed(2),null,pc(gr(IS.eps,2,3)),false,'FY25 $7.98'],
+ ['Cash','$192.1M',null,'−$11.4M',false,'no long-term debt']
+];
+kp[0][1]='$2.523B';
+$('kpis').innerHTML=kp.map(k=>`<div class="kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="d ${k[4]?'pos':'neg'}">${k[3]} vs FY25</div><div class="s">${k[5]}</div></div>`).join('');
+
+let state={id:INS[0].id,opt:{},tab:'is'};
+const tables=$('tables'),tabs=$('tabs');
+tabs.innerHTML=TABS.map(t=>`<button class="tab" role="tab" data-t="${t.id}" aria-selected="false">${t.l}</button>`).join('');
+tables.innerHTML=TABS.map(t=>`<div data-pane="${t.id}" hidden>${tableHtml(t)}</div>`).join('');
+function setTab(id){state.tab=id;tabs.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===id));tables.querySelectorAll('[data-pane]').forEach(p=>p.hidden=p.dataset.pane!==id);$('srcnote').textContent=TABS.find(t=>t.id===id).note;}
+tabs.addEventListener('click',e=>{const b=e.target.closest('.tab');if(b){setTab(b.dataset.t);applyHl();}});
+
+const groups=[...new Set(INS.map(i=>i.g))];
+$('chips').innerHTML=groups.map(g=>`<div class="grp"><span class="gl">${g}</span>${INS.filter(i=>i.g===g).map(i=>`<button class="chip" type="button" data-id="${i.id}" aria-pressed="false" data-tip="In plain English: ${i.eli.replace(/&/g,'&amp;').replace(/"/g,'&quot;')}">${i.b}</button>`).join('')}</div>`).join('');
+$('chips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(b)select(b.dataset.id,true);});
+
+function cur(){return INS.find(i=>i.id===state.id);}
+function applyHl(){const ins=cur();tables.querySelectorAll('tr[data-k]').forEach(tr=>{const k=tr.dataset.k;tr.classList.toggle('hl',!tr.classList.contains('sec')&&ins.hl.some(h=>k===h||k.startsWith(h+'-')||(h.length>2&&k.startsWith(h))));});}
+function drawChart(){const ins=cur(),W=Math.max(260,Math.floor($('chart').clientWidth));$('chart').innerHTML=ins.r(W,state.opt[ins.id]||(ins.opts&&ins.opts[0].k));}
+function select(id,push){
+ state.id=id;const ins=cur(),idx=INS.indexOf(ins);
+ document.querySelectorAll('.chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.id===id));
+ $('head').textContent=ins.h;$('sub').textContent=ins.sub;$('eli').innerHTML='<b>In plain English:</b> '+ins.eli;$('pos').textContent=(idx+1)+' of '+INS.length;
+ $('tags').innerHTML=ins.tag.map(t=>`<span class="tag ${t==='Our calc.'?'der':''}">${t}</span>`).join(' ');
+ const sw=$('segwrap');
+ if(ins.opts){const sel=state.opt[id]||ins.opts[0].k;sw.innerHTML=`<div class="seg">${ins.opts.map(o=>`<button type="button" data-o="${o.k}" aria-pressed="${o.k===sel}">${o.l}</button>`).join('')}</div>`;}else sw.innerHTML='';
+ $('take').innerHTML=ins.why.map(w=>`<li class="${w[2]==='Caveat'?'cv':''}"><div class="wl">${w[0]}</div><div class="wt">${w[1].replace(/&/g,'&amp;')}<span class="tag ${w[2]==='Our calc.'||w[2]==='Our reading'?'der':''}">${w[2]}</span></div></li>`).join('');
+ drawChart();setTab(ins.src);applyHl();
+ try{history.replaceState(null,'','#'+id);}catch(e){}
+}
+$('segwrap').addEventListener('click',e=>{const b=e.target.closest('button[data-o]');if(!b)return;state.opt[state.id]=b.dataset.o;$('segwrap').querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));drawChart();});
+$('viewsrc').addEventListener('click',()=>{$('tables').scrollIntoView({behavior:'smooth',block:'nearest'});});
+$('prev').addEventListener('click',()=>select(INS[(INS.indexOf(cur())+INS.length-1)%INS.length].id,true));
+$('next').addEventListener('click',()=>select(INS[(INS.indexOf(cur())+1)%INS.length].id,true));
+
+/* copy helpers */
+function fallback(text){$('fbt').value=text;$('fb').hidden=false;$('fbt').select();}
+$('fbx').addEventListener('click',()=>{$('fb').hidden=true;});
+function copy(text,btn){const done=()=>{if(!btn)return;const o=btn.textContent;btn.textContent='Copied';setTimeout(()=>btn.textContent=o,1200);};
+ try{navigator.clipboard.writeText(text).then(done,()=>fallback(text));}catch(e){fallback(text);}}
+$('copyone').addEventListener('click',e=>{const i=cur();copy(i.h+'\n'+i.why.map(w=>w[0]+': '+w[1]).join('\n')+'\n'+SRC_LINE,e.currentTarget);});
+
+/* tooltip */
+const tipEl=$('tip');
+document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');if(!t){tipEl.hidden=true;return;}
+ tipEl.textContent=t.getAttribute('data-tip');tipEl.hidden=false;const w=tipEl.offsetWidth;tipEl.style.left=Math.max(8,Math.min(e.clientX+12,window.innerWidth-w-8))+'px';tipEl.style.top=(e.clientY+16)+'px';});
+document.addEventListener('focusin',e=>{const t=e.target.closest&&e.target.closest('.chip[data-tip]');if(!t)return;const r=t.getBoundingClientRect();tipEl.textContent=t.getAttribute('data-tip');tipEl.hidden=false;tipEl.style.left=Math.max(8,Math.min(r.left,window.innerWidth-tipEl.offsetWidth-8))+'px';tipEl.style.top=(r.bottom+6)+'px';});
+document.addEventListener('focusout',()=>{tipEl.hidden=true;});
+document.addEventListener('pointerleave',()=>{tipEl.hidden=true;});
+
+/* resize */
+let lastW=0;
+if('ResizeObserver' in window){new ResizeObserver(()=>{const w=Math.floor($('chart').clientWidth);if(Math.abs(w-lastW)>2){lastW=w;drawChart();}}).observe($('chart'));}
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(INS.some(i=>i.id===h)&&h!==state.id)select(h,false);});
+
+const h0=location.hash.slice(1);
+select(INS.some(i=>i.id===h0)?h0:INS[0].id,false);
+})();
+</script>
+
+</body></html>
